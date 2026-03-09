@@ -50,7 +50,7 @@ main.p-6.bg-gray-100.max-w-lg.w-full.text-sm.rounded-sm
 
     .mb-5
       label.block.text-gray-500.mb-2
-        | Users
+        | Users & Workspaces
         span.ml-1.text-gray-400
           | (active regardless of groups and percentage)
 
@@ -62,10 +62,17 @@ main.p-6.bg-gray-100.max-w-lg.w-full.text-sm.rounded-sm
           name='users'
           id='users'
           value=@feature.users.join(', ')
-          class='hover:border-gray-500'
+          class='hover:border-gray-500 placeholder-gray-400'
           rows='2'
+          placeholder='comma-separated, see prefixes below'
         )
           = @feature.users.join(', ')
+      .mt-2.text-gray-400.text-xs.leading-relaxed
+        | <strong>123</strong> — user ID (active for this user)
+        br
+        | <strong>o123</strong> — workspace ID (active for this workspace only)
+        br
+        | <strong>uo123</strong> — workspace ID (active for all users who belong to this workspace regardless of their currently selected workspace)
 
     .mb-5
       label.block.text-gray-500.mb-2 
